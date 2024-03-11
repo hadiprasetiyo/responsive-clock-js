@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200');
+
+body {
+  background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+  background-size:cover;
+    -webkit-animation: slidein 100s;
+    animation: slidein 100s;
+
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;              
+}
+
+@-webkit-keyframes slidein {
+  from {background-position: top; background-size:3000px; }
+  to {background-position: -100px 0px;background-size:2750px;}
+}
+
+@keyframes slidein {
+  from {background-position: top;background-size:3000px; }
+  to {background-position: -100px 0px;background-size:2750px;}
+}
+
+/* class utama */
+.clock-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(75, 75, 250, 0.3);
+  border-radius: 3px;
+}
+
+/* pembungkus jam */
+.clock-wrapper {
+  width: 28%; /* Ubah lebar sesuai kebutuhan */
+  margin: 10% auto; /* Atur margin atas dan bawah, dan otomatis di tengah */
+  padding: 1% 0;
+  z-index: 0;
+  border: 2px solid white; /* Menambahkan border putih dengan ketebalan 2px */
+  border-radius: 5px; /* Memberikan sudut melengkung pada border */
+  position: relative; /* Diperlukan untuk animasi */
+  animation: glowing 2s infinite; /* Border akan menyala selama 2 detik */
+}
+
+/* keyframe border */
+@keyframes glowing {
+  0% { border-color: rgb(0, 166, 255); box-shadow: 0 0 10px rgb(0, 166, 255); }
+  25% { border-color: rgb(153, 204, 255); box-shadow: 0 0 10px rgb(153, 204, 255); }
+  50% { border-color: rgb(204, 229, 255); box-shadow: 0 0 20px rgb(204, 229, 255); }
+  75% { border-color: rgb(153, 204, 255); box-shadow: 0 0 10px rgb(153, 204, 255); }
+  100% { border-color: rgb(0, 166, 255); box-shadow: 0 0 10px rgb(0, 166, 255); }
+}
+
+/* jam digital */
+#jam {
+  text-align:center;
+  color:white;
+  font-family: Orbitron;
+  text-transform:uppercase;
+  font-size: 4vw; /* Ukuran font responsif */
+}
+
+#jam::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#jam span {
+  font-size: 4vw; /* Ukuran font responsif */
+  margin: 0 3%; /* Atur margin horizontal */
+}
+
+
+/* ==== Responsive ==== */
+
+/* Desktop */
+@media screen and (min-width: 980px) {
+  .clock-wrapper {
+    width: 40%;
+    margin:10% auto;
+    padding: 3% 0;
+  }
+  #jam {
+    font-size: 5vw;
+  }
+  #jam span {
+    font-size: 5vw;
+  }
+}
+
+/* Tablet (Orientasi Potrait) */
+@media screen and (min-width: 768px) and (max-width: 979px) {
+  .clock-wrapper {
+    width: 65%;
+    margin: 5% auto;
+    padding: 4% 0;
+  }
+  #jam {
+    font-size: 10vw;
+  }
+  #jam span {
+    font-size: 10vw;
+  }
+}
+
+/* Tablet (Orientasi Lanskap) */
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  .clock-wrapper {
+    width: 65%;
+    margin: 5% auto;
+    padding: 4% 0;
+  }
+  #jam {
+    font-size: 10vw;
+  }
+  #jam span {
+    font-size: 10vw;
+  }
+}
+
+/* Smartphone (Orientasi Potrait) */
+@media screen and (max-width: 767px) and (orientation: portrait) {
+  .clock-wrapper {
+    width: 65%;
+    margin: 5% auto;
+    padding: 4% 0;
+  }
+  #jam {
+    font-size: 10vw;
+  }
+  #jam span {
+    font-size: 10vw;
+  }
+}
+
+/* Smartphone (Orientasi Lanskap) */
+@media screen and (max-width: 479px) and (orientation: landscape) {
+  .clock-wrapper {
+    width: 65%;
+    margin: 5% auto;
+    padding: 4% 0;
+  }
+  #jam {
+    font-size: 10vw;
+  }
+  #jam span {
+    font-size: 10vw;
+  }
+}
+
+
